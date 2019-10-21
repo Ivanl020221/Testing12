@@ -1,0 +1,29 @@
+﻿<Window x:Class="ImageTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="Image"/>
+        <TextBox Grid.Column="2" Name="Color"></TextBox>
+        <ListBox x:Name="Colorlist" Grid.Column="3">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="{Binding color}" Height="10" Width="10">
+                        
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Column="1" Background="{Binding ElementName=Color,Path=Text}" Click="Button_Click"></Button>
+    </Grid>
+</Window>
